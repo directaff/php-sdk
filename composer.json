@@ -1,0 +1,18 @@
+{
+    "name": "directaff/php-sdk",
+    "description": "DirectAff php sdk",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DirectAff\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ruhul Ameen",
+            "email": "ruhulameen788@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
