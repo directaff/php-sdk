@@ -24,9 +24,9 @@ abstract class Base
      */
     public function setBaseUrl(string $url): self
     {
-        // if (filter_var($url, FILTER_VALIDATE_URL) === false) {
-        //     throw new \InvalidArgumentException("Invalid URL format.");
-        // }
+        if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+            throw new \InvalidArgumentException("Invalid URL format.");
+        }
         $this->baseUrl = $url;
         return $this;
     }
@@ -158,7 +158,6 @@ abstract class Base
 
         $res = curl_exec($ch);
         $queryString = http_build_query($data, '', '&');
-        //return ['debug_url' => $this->baseUrl . '?' . $queryString];
         // Check if any cURL error occurred
         if (curl_errno($ch)) {
             $errorMsg = curl_error($ch);
