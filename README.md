@@ -34,11 +34,23 @@ To register a user:
 ```php
 $response = $directAff->register([
     'clickId' => 'exampleClickId',
-    'username' => 'exampleUsername',
+    'identification' => 'exampleUsername', // it can be username or email or phone, userId
     'registration_date' => '2023-01-01 00:00:00'
 ]);
 ```
+### Register Through Promo Code (offline marketing)
 
+To register a user through promo code:
+
+```php
+$response = $directAff->registerThroughPromoCode([
+    'promoCode' => 'examplePromoCode',
+    'identification' => 'exampleUsername', // it can be username or email or phone, userId
+    'ipAddress' => '127.0.0.1',
+    'userAgent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)',
+    'registration_date' => '2023-01-01 00:00:00'
+]);
+```
 ### Deposit
 
 To record a deposit:

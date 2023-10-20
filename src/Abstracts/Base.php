@@ -70,6 +70,17 @@ abstract class Base
 
 
     /**
+     *  Offline affiliate tracking software can use this method to register a user through a promo code.
+     *
+     * @param array $params Registration parameters.
+     * @return array Response from the API.
+     */
+    public function registerThroughPromoCode(array $params): array
+    {
+    }
+
+
+    /**
      * Send deposit data to tracking software
      *
      * @param array $params Deposit parameters.

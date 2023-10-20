@@ -9,14 +9,30 @@ class DirectAff extends Base
 
     /**
      * Player registration
-     * @param array $params ['clickId', 'registration_date']
+     * @param array $params ['clickId', ''identification, 'registration_date']
      * @return array
      */
     public function register(array $params): array
     {
         // Validate $params inside the method
-        if (!isset($params['clickId'], $params['username'], $params['registration_date'])) {
+        if (!isset($params['clickId'], $params['identification'], $params['registration_date'])) {
             throw new \InvalidArgumentException("Required parameters for registration are missing.");
+        }
+
+        return $this->makeApiPostRequest($params);
+    }
+
+
+    /**
+     * Offline affiliate tracking software can use this method to register a user through a promo code.
+     * @param array $params ['promoCode', 'identification', 'ipAddress', 'userAgent', 'registration_date']
+     * @return array
+     */
+    public function registerThroughPromoCode(array $params): array
+    {
+        // Validate $params inside the method
+        if (!isset($params['promoCode'], $params['identification'], $params['ipAddress'], $params['userAgent'],$params['registration_date'])) {
+            throw new \InvalidArgumentException("Required parameters for offline tracking are missing");
         }
 
         return $this->makeApiPostRequest($params);
